@@ -351,5 +351,9 @@ else
 fi
 . ${R}etc/init.d/rc.logging
 
+work_item_new start    # added by nidhi
+servo_gimbal start     # first added by nidhi
+
+
 mavlink boot_complete
 replay trystart

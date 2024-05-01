@@ -225,3 +225,10 @@ then
 	# start last (wait for possible icm20948 passthrough mode)
 	ak09916 -X -q start
 fi
+
+
+
+
+
+servo_gimbal -X start     # added by nidhi
+

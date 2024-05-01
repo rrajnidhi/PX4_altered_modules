@@ -1,0 +1,5 @@
+menuconfig DRIVERS_SERVO_GIMBAL
+	bool "servo_gimbal"
+	default n
+	---help---
+		Enable support for servo_gimbal
