@@ -103,7 +103,7 @@ void WorkItemNew::Run()
 				/* advertise indexed debug value */
 				struct debug_value_s dbg_ind;
 				dbg_ind.ind = 42;
-				dbg_ind.value = 0.5f;
+				dbg_ind.value = -(_roll*180/3.14);
 				orb_advert_t pub_dbg_ind = orb_advertise(ORB_ID(debug_value), &dbg_ind);
 				orb_publish(ORB_ID(debug_value), pub_dbg_ind, &dbg_ind);
 			}
@@ -118,15 +118,6 @@ void WorkItemNew::Run()
 			}
 		}
 	}
-
-
-	// Example
-	//  publish some data
-	orb_test_s data{};
-	data.val = 314159;
-	data.timestamp = hrt_absolute_time();
-	_orb_test_pub.publish(data);
-
 
 	perf_end(_loop_perf);
 }

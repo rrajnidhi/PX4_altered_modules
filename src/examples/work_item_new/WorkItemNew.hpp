@@ -47,7 +47,6 @@
 #include <uORB/SubscriptionCallback.hpp>
 #include <uORB/topics/orb_test.h>
 #include <uORB/topics/parameter_update.h>
-// #include <uORB/topics/sensor_accel.h>
 #include <uORB/topics/vehicle_status.h>
 #include <uORB/topics/vehicle_odometry.h>
 #include <uORB/topics/mavlink_log.h>
@@ -81,9 +80,6 @@ public:
 private:
 	void Run() override;
 
-	// Publications
-	uORB::Publication<orb_test_s> _orb_test_pub{ORB_ID(orb_test)};
-
 	// Subscriptions
 	// uORB::SubscriptionCallbackWorkItem _sensor_accel_sub{this, ORB_ID(sensor_accel)};
 	uORB::SubscriptionCallbackWorkItem _vehicle_odometry_sub{this, ORB_ID(vehicle_odometry)};          // subscription that schedules WorkItemNew when updated
@@ -100,11 +96,8 @@ private:
 		(ParamInt<px4::params::SYS_AUTOCONFIG>) _param_sys_autoconfig  /**< another parameter */
 	)
 
-
 	bool _armed{false};
-
 	orb_advert_t _mavlink_log_pub{nullptr};	 	/**< Mavlink log uORB handle */
-
 	double _roll;
 	bool _is_nav_state_mission;
 
