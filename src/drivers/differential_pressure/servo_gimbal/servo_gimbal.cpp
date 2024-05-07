@@ -142,11 +142,11 @@ void SERVO_GIMBAL::RunImpl()
 		}
 		else
 		{
-			data =  Nan;
+			data =  Nan;   //not sure if sending NaN is appropriate
 		}
 		uint8_t cmd = ADDR_READ_MR;
 
-			if (transfer(&data, 1, nullptr, 0) == OK) {
+			if (transfer(&cmd, &data, nullptr, 0) == OK) {
 				// sucess in transmitting
 			}
 			else{
